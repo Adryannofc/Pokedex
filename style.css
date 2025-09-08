@@ -1,17 +1,17 @@
 :root {
-  --bg: #F5F7FA;
-  --bg-secondary: #E4E7EB;
-  --border: #CBD2D9;
-  --text: #1F2933;
-  --text-secondary: #3E4C59;
+    --bg: #F5F7FA;
+    --bg-secondary: #E4E7EB;
+    --border: #CBD2D9;
+    --text: #1F2933;
+    --text-secondary: #3E4C59;
 }
 
 .dark-theme {
-  --bg: #1F2933;
-  --bg-secondary: #323F4B;
-  --border: #3E4C59;
-  --text: #F5F7FA;
-  --text-secondary: #CBD2D9;
+    --bg: #1F2933;
+    --bg-secondary: #323F4B;
+    --border: #3E4C59;
+    --text: #F5F7FA;
+    --text-secondary: #CBD2D9;
 }
 
 * {
@@ -28,6 +28,7 @@ body {
 img {
     width: 40px;
 }
+
 /* Header */
 
 .header {
@@ -47,14 +48,14 @@ img {
     align-items: center;
 }
 
-.logo img{
+.logo img {
     width: 50px;
 }
 
 .nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .nav a {
@@ -83,7 +84,7 @@ img {
     outline: none;
     width: 100%;
     height: 2.5rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .search button {
@@ -100,19 +101,107 @@ img {
 }
 
 .search button:hover {
-  background: var(--border);
+    background: var(--border);
 }
 
-.search img{
+.search img {
     width: 25px;
 }
 
-.theme button{
-    background:none;
+.theme button {
+    background: none;
     border: none;
     cursor: pointer;
 }
 
 .theme img {
     width: 2rem;
+}
+
+/* Main */
+
+.type.grass {
+    background-color: #78C850;
+}
+
+.type.poison {
+    background-color: #A040A0;
+}
+
+.type.fire {
+    background-color: #F08030;
+}
+
+.type.water {
+    background-color: #6890F0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.card {
+    position: relative;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    background-image: url('assets/pokeball-background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-size: 200px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-id {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.card-name {
+    position: absolute;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.card-types {
+    margin: 0.5rem 0 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.type {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card-image img {
+    width: 120px;
 }
