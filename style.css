@@ -95,13 +95,13 @@ img {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    border-radius: 50%;
+    border-radius: 80%;
     padding: 0.2rem;
     transition: background 0.3s;
 }
 
 .search button:hover {
-    background: var(--border);
+    background: #f5f5f5;
 }
 
 .search img {
@@ -200,6 +200,7 @@ img {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    margin-top: 1rem;
 }
 
 .card-image img {
