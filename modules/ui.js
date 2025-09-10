@@ -5,6 +5,10 @@ export function createPokemonCard(pokemon){
     const card = document.createElement("article");
     card.classList.add("card");
 
+    // Card Header
+    const header = document.createElement("div");
+    header.classList.add("card-header");
+
     // ID
     const id = document.createElement("span");
     id.classList.add("card-id");
@@ -30,13 +34,15 @@ export function createPokemonCard(pokemon){
     imageContainer.classList.add("card-image");
 
     const image = document.createElement("img");
-    image.src = pokemon.sprites.other['official-artwork'].front_default;
+    console.log(pokemon.sprites)
+    image.src = pokemon.sprites.other["official-artwork"].front_default;
     image.alt = pokemon.name
-    
     imageContainer.appendChild(image);
+    
+    header.appendChild(name);
+    header.appendChild(id);
 
-    card.appendChild(id); 
-    card.appendChild(name);
+    card.appendChild(header);
     card.appendChild(imageContainer);
     card.appendChild(types);
 
