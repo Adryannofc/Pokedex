@@ -8,9 +8,25 @@ export async function getPokemon(identifier) {
         } 
 
         const data = await response.json();
-        return data; // devolve o objeto {Pokemon}
+        return data; // retorna o objeto {Pokemon}
     } catch (error) {
         console.error(error);
         return null
+    }
+}
+
+export async function getPokemons(limit, offset){
+    try {
+        const result = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+
+        if(!result.ok){
+            throw new Error("Erro ao carregar lista de Pokemons")
+        } 
+
+        const data = await result.json();
+        return data.results; // Retorna arrau com { name, url }
+    } catch (error){
+        console.error(error);
+        return []
     }
 }
