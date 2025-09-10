@@ -127,27 +127,30 @@ img {
 
 /* Main */
 
-.type.grass {
-    background-color: #78C850;
-}
-
-.type.poison {
-    background-color: #A040A0;
-}
-
-.type.fire {
-    background-color: #F08030;
-}
-
-.type.water {
-    background-color: #6890F0;
-}
+.type.normal   { background-color: #A8A77A; }
+.type.fire     { background-color: #EE8130; }
+.type.water    { background-color: #6390F0; }
+.type.electric { background-color: #F7D02C; }
+.type.grass    { background-color: #7AC74C; }
+.type.ice      { background-color: #96D9D6; }
+.type.fighting { background-color: #C22E28; }
+.type.poison   { background-color: #A33EA1; }
+.type.ground   { background-color: #E2BF65; }
+.type.flying   { background-color: #A98FF3; }
+.type.psychic  { background-color: #F95587; }
+.type.bug      { background-color: #A6B91A; }
+.type.rock     { background-color: #B6A136; }
+.type.ghost    { background-color: #735797; }
+.type.dragon   { background-color: #6F35FC; }
+.type.dark     { background-color: #705746; }
+.type.steel    { background-color: #B7B7CE; }
+.type.fairy    { background-color: #D685AD; }
 
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    padding: 2rem;
+    padding: 2rem 12rem;
 }
 
 .card {
@@ -157,34 +160,40 @@ img {
     border-radius: 16px;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 
     background-image: url('assets/pokeball-background.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-blend-mode: multiply;
-    background-size: 200px;
+    background-blend-mode: normal;
+    background-size: 120;
+    opacity: 0.95;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
-.card-id {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
 
 .card-name {
-    position: absolute;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    text-transform: capitalize; /* Primeira letra maiuscula */
     color: var(--text);
+}
+
+.card-id {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 .card-types {
@@ -196,7 +205,7 @@ img {
 
 .type {
     padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+    border-radius: 100px;
     font-size: 0.8rem;
     font-weight: bold;
     color: #fff;
@@ -207,9 +216,10 @@ img {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    margin-top: 1rem;
+    min-height: 150px;
 }
 
 .card-image img {
     width: 120px;
+    height: auto;
 }
