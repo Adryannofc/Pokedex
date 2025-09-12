@@ -1,6 +1,6 @@
 :root {
-    --bg: #F5F7FA;
-    --bg-secondary: #E4E7EB;
+    --bg: #f3f3f3; /*E4E7EB*/
+    --bg-secondary: #f5f7fa; 
     --border: #CBD2D9;
     --text: #1F2933;
     --text-secondary: #3E4C59;
@@ -33,6 +33,11 @@ img {
 
 .header {
     display: flex;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
@@ -145,6 +150,10 @@ img {
 .type.dark     { background-color: #705746; }
 .type.steel    { background-color: #B7B7CE; }
 .type.fairy    { background-color: #D685AD; }
+
+.main {
+    margin-top: 5rem;
+}
 
 .cards {
     display: grid;
