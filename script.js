@@ -20,6 +20,7 @@ let offset = 0;
 const limit = 20;
 let loading = false;
 
+// Carrega uma lista de Pokemons
 async function loadPokemons() {
     if (loading) return;
     loading = true;
@@ -35,7 +36,11 @@ async function loadPokemons() {
     loading = false
 }
 
+let isSearching = false;
+// Carrega a lista de Pokemons enquanto scroll
 window.addEventListener('scroll', () => {
+    if(isSearching) return;
+
     if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
         loadPokemons();
     }
@@ -45,25 +50,32 @@ async function searchPokemon() {
     const input = document.querySelector("#search-input");
     const name = input.value.trim().toLowerCase();
 
-    if(!name) return;
+    const container  = document.querySelector(".cards");
+    container.innerHTML = "";
 
-    document.querySelector(".cards").innerHTML = "";
+    if(!name) {
+        isSearching = false;
+        offset = 0;
+        await loadPokemons();
+        return;
+    } 
 
-    const pokemon = await getPokemon(name)
-    
+    isSearching = true;
+
+    const pokemon = await getPokemon(name);
+
     if(pokemon){
-        createPokemonCard(pokemon);
+        createPokemonCard(pokemon)
     } else {
-        const container = document.querySelector('.cards');
         container.innerHTML = `<p style="text-align:center; color:red;">Pokémon "${name}" não encontrado.</p>`;
     }
 }
 
-document.getElementById("search-btn").addEventListener("click", searchPokemon)
+let debounceTimer;
 
-document.getElementById("search-form").addEventListener("submit", (e) => {
-    e.preventDefault(); 
-    searchPokemon();
+document.getElementById("search-input").addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(searchPokemon, 300);
 })
 
 loadPokemons();
