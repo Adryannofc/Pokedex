@@ -47,4 +47,6 @@ export function createPokemonCard(pokemon){
     card.appendChild(types);
 
     container.appendChild(card);
+
+    requestAnimationFrame(() => card.classList.add("show"));
 }
