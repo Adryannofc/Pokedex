@@ -1,5 +1,5 @@
-import {getPokemon, getPokemons} from './modules/api.js';
-import {createPokemonCard} from './modules/ui.js'
+import { getPokemon, getPokemons, getAllPokemons} from './modules/api.js';
+import { createPokemonCard } from './modules/ui.js'
 
 // import {formatName} from './modules/utils.js'
 
@@ -15,7 +15,7 @@ async function main() {
 } 
 
 */
-  
+
 let offset = 0;
 const limit = 20;
 let loading = false;
@@ -27,7 +27,7 @@ async function loadPokemons() {
 
     const list = await getPokemons(limit, offset);
 
-    for (const item of list){
+    for (const item of list) {
         const pokemon = await getPokemon(item.name);
         createPokemonCard(pokemon);
     }
@@ -37,37 +37,42 @@ async function loadPokemons() {
 }
 
 let isSearching = false;
+
 // Carrega a lista de Pokemons enquanto scroll
 window.addEventListener('scroll', () => {
-    if(isSearching) return;
+    if (isSearching) return;
 
-    if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
         loadPokemons();
     }
 })
 
 async function searchPokemon() {
-    const input = document.querySelector("#search-input");
+    const input = document.getElementById("search-input");
     const name = input.value.trim().toLowerCase();
 
-    const container  = document.querySelector(".cards");
+    const container = document.querySelector(".cards");
     container.innerHTML = "";
 
-    if(!name) {
+    if (!name) {
         isSearching = false;
         offset = 0;
         await loadPokemons();
         return;
-    } 
+    }
 
     isSearching = true;
 
-    const pokemon = await getPokemon(name);
+    const allPokemons = await getAllPokemons();
+    const filtered = allPokemons.filter(p => p.name.startsWith(name));
 
-    if(pokemon){
-        createPokemonCard(pokemon)
+    if (filtered.length > 0) {
+        for (const item of filtered) {
+            const pokemon = await getPokemon(item.name);
+            createPokemonCard(pokemon);
+        }
     } else {
-        container.innerHTML = `<p style="text-align:center; color:red;">Pokémon "${name}" não encontrado.</p>`;
+        container.innerHTML = `<p style="text-align:center; color:red;">Nenhum Pokémon encontrado com "${name}".</p>`;
     }
 }
 
