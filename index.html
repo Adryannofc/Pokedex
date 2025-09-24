@@ -1,4 +1,3 @@
-<!--COMMIT TESTE-->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,16 +11,10 @@
 </head>
 
 <body>
-
-    <!--Header-->
     <header class="header">
-
-        <!--Logo-->
         <a href="#" class="logo">
             <img src="assets/pokeball.png" alt="Logo Pokedex">
         </a>
-
-        <!--Navigation-->
         <nav class="nav">
             <ul>
                 <li><a href="#">Home</a></li>
@@ -29,16 +22,12 @@
                 <li><a href="#">About</a></li>
             </ul>
         </nav>
-
-        <!--Search-->
         <form class="search" id="search-form">
             <input type="text" placeholder="Buscar Pokemon" id="search-input">
             <button type="button" id="search-btn">
                 <img src="assets/search.png" alt="Buscar">
             </button>
         </form>
-
-        <!--Theme-->
         <div class="theme">
             <button>
                 <img src="assets/moon.png" alt="Icon Moon">
@@ -46,12 +35,55 @@
         </div>
     </header>
 
-    <!--Main-->
-    <main class="main">
-        <section class="cards">
+    <div class="main-container">
+        <main class="main">
+            <section class="cards">
+            </section>
+        </main>
 
-        </section>
-    </main>
+        <aside class="filters">
+            <div class="filter-header">
+                <img src="assets/filter.png" alt="Filtrar">
+                <h2>Filtrar</h2>
+            </div>
+
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <h3>Types</h3>
+                    <button class="toggle-btn active">
+                        <img src="assets/arrow-up.svg" alt="Recolher">
+                     </button>
+                </div>
+
+                <div class="type-filters">
+
+                    <div class="type-filter-item type normal" data-type="normal">
+                        <span class="radio-circle"></span>
+                        <span class="type-name">Normal</span>
+                        <img class="type-icon" src="assets/Types/type-normal.svg" alt="Ícone Normal">
+                    </div>
+
+                    <div class="type-filter-item type fire" data-type="fire">
+                        <span class="radio-circle"></span>
+                        <span class="type-name">Fire</span>
+                        <img class="type-icon" src="assets/Types/type-fire.svg" alt="Ícone Fire">
+                    </div>
+
+                    <div class="type-filter-item type water" data-type="water">
+                        <span class="radio-circle"></span>
+                        <span class="type-name">Water</span>
+                        <img class="type-icon" src="assets/Types/type-water.svg" alt="Ícone Water">
+                    </div>
+                    
+                </div>
+            </div>
+        </aside>
+    </div>
+
+
+    <button class="filter-toggle-button">
+        <img src="assets/filter.png" alt="Abrir Filtros">
+    </button>
 </body>
 <script src="script.js" type="module"></script>
 
