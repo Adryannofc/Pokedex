@@ -41,7 +41,7 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background-color: var(--bg-secondary);
+    background-color: #efefef;
     border-bottom: 1px solid var(--border);
     box-shadow: 1px 0.5px 3px var(--border);
     gap: 1.5rem;
