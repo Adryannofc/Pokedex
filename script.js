@@ -42,7 +42,7 @@ let isSearching = false;
 window.addEventListener('scroll', () => {
     if (isSearching) return;
 
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 800) {
         loadPokemons();
     }
 })
