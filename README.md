@@ -1,4 +1,4 @@
-# 🐉 Pokédex (Em desenvolvimento)
+# 🐉 Pokédex (Em desenvolvimento...)
 Bem-vindo ao projeto Pokédex! 📱 Uma aplicação web simples e interativa para visualizar informações sobre os seus Pokémons favoritos.
 
 <div align="center">
